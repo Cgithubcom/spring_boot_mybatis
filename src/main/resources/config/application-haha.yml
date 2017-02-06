@@ -1,0 +1,14 @@
+server:
+  port: 8082
+  contextPath: /hell #访问路径
+#spring.mvc.view:
+#  prefix: /WEB-INF/jsp/
+#  suffix: .jsp
+logging:
+  file: D:/mylog/log.log
+  level:
+    org.springframework.web: DEBUG
+    root: INFO
+other:
+  name: 姓名 #可以通过@Value("${other.name}")注解在所有的bean中应用配置里面的属性
+  code: HKJ9879JKL
