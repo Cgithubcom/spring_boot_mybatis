@@ -1,21 +1,31 @@
 package com.cone.demo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.cone.demo.dao.UserMapper;
+import com.cone.demo.model.bo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by pactera on 2017/2/6.
  */
 @Controller
+@RequestMapping("/demo")
 public class DemoController {
     @Value("${other.name}")
     private String name;
     @Value("${other.code}")
     private String code;
+    @Autowired
+    private UserMapper mapper;
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     @ResponseBody
     String home() {
         return "Hello World!<br>name:"+name+"<br>code:"+code;
@@ -23,5 +33,13 @@ public class DemoController {
     @RequestMapping("/test")
     String test() {
         return "test";
+    }
+    @RequestMapping("/rest/{id}")
+    @ResponseBody
+    List<User> rest(@PathVariable("id") String id){
+        List<User> list=mapper.queryAll();
+        //String str= JSON.toJSONString(list);
+        //return "id"+id+"<br>"+str;
+        return list;
     }
 }
