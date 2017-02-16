@@ -8,6 +8,7 @@ import com.cone.demo.model.bo.User;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,8 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoTest {
+public class DemoTest{
+    private static Logger log=Logger.getLogger(DemoTest.class);
     @Autowired
     private UserMapper mapper;
     @Value("${other.name}")
@@ -59,11 +61,12 @@ public class DemoTest {
     }
     @Test
     public void selectAllPage(){
-        PageHelper.startPage(2,5,true);
+        PageHelper.startPage(1,4,true);
         //Page<List<User>> p_list=mapper.selectAll();
         List<User> list=mapper.selectAll();
         PageInfo page = new PageInfo(list);
         String str= JSON.toJSONString(page);
+        log.info(str);
         System.out.println(str);
     }
 }

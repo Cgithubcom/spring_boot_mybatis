@@ -6,6 +6,7 @@ import com.cone.demo.model.bo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,7 +32,8 @@ public class DemoController {
         return "Hello World!<br>name:"+name+"<br>code:"+code;
     }
     @RequestMapping("/test")
-    String test() {
+    String test(Model model) {
+        model.addAttribute("name","desar都是");
         return "test";
     }
     @RequestMapping("/rest/{id}")
