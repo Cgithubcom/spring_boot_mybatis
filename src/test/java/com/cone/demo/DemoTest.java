@@ -8,6 +8,9 @@ import com.cone.demo.model.bo.User;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
+import tk.mybatis.mapper.entity.Example;
+
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,20 +56,43 @@ public class DemoTest{
         System.out.println(str);
     }
     @Test
-    public void select(){
+    public void selectSQL(){
         User user=new User();
         user.setUserName("王范德");
         user.setAge(23);
         mapper.insert(user);
     }
-    @Test
+	@Test
     public void selectAllPage(){
         PageHelper.startPage(1,4,true);
         //Page<List<User>> p_list=mapper.selectAll();
         List<User> list=mapper.selectAll();
+        @SuppressWarnings({ "rawtypes", "unchecked" })
         PageInfo page = new PageInfo(list);
         String str= JSON.toJSONString(page);
         log.info(str);
         System.out.println(str);
+    }
+    @Test
+	public void select() {
+		PageHelper.startPage(1, 4, true);
+		User user = new User();
+		user.setUserName("王范德");
+		List<User> list = mapper.select(user);
+		// PageInfo<User> page=new PageInfo<User>();
+		// page.setList(list);
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		PageInfo page = new PageInfo(list);
+		String str = JSON.toJSONString(page);
+		log.info(str);
+		System.out.println(str);
+	}
+    @Test
+    public void selectByExample(){
+    	Example example=new Example(User.class);
+    	example.createCriteria().andLike("userName", "%张%");
+    	List<User> list=mapper.selectByExample(example);
+    	String str = JSON.toJSONString(list);
+		System.out.println(str);
     }
 }
