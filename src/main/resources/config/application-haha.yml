@@ -13,9 +13,11 @@ spring:
         encoding: UTF-8
         content-type: text/html
         cache: false
-        cache-period: 0
-    template:
-        cache: false
+security:
+  user:
+    name: admin
+    password: admin
+    role: USER
 mybatis:
   mapperLocations: classpath*:com/cone/**/dao/*.xml
 #  typeAliasesPackage: com.cone.demo.model.bo
