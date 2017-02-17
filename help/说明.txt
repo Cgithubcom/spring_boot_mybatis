@@ -1,0 +1,4 @@
+1.eclipse构建运行：通过maven构建项目后，需要将main/resources文件夹设置为源码包(右键——>build path->use as source folder)
+2.ide下需要main/resources设置为资源包
+3.打包命令（package spring-boot:repackage）；
+4.打成jar包后可在window dos下通过（java -jar **.jar）命令运行，可通过（chcp 65001）命令设置dos的编码为utf-8,否则命令行会出现中文乱码的问题

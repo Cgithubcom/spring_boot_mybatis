@@ -39,7 +39,7 @@ public class DemoController {
     @RequestMapping("/rest/{id}")
     @ResponseBody
     List<User> rest(@PathVariable("id") String id){
-        List<User> list=mapper.queryAll();
+        List<User> list=mapper._queryAll();
         //String str= JSON.toJSONString(list);
         //return "id"+id+"<br>"+str;
         return list;

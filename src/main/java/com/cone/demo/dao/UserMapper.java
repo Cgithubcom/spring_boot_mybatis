@@ -3,9 +3,7 @@ package com.cone.demo.dao;
 
 import com.cone.demo.model.bo.User;
 import com.cone.utils.mybatisConfig.MyMapper;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -15,13 +13,13 @@ import java.util.List;
 @Mapper
 public interface UserMapper extends MyMapper<User> {
     //@Insert("insert into t_user(username,age) values(#{userName,jdbcType=VARCHAR},#{age,jdbcType=NUMERIC})")
-    public int save(User user);
+    public int _save(User user);
 
-    User selectById(Integer id);
+    User _selectById(Integer id);
 
-    int updateById(User user);
+    int _updateById(User user);
 
-    int deleteById(Integer id);
-    //@Select("select * from t_user")
-    List<User> queryAll();
+    int _deleteById(Integer id);
+    
+    List<User> _queryAll();
 }

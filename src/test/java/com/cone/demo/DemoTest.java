@@ -39,13 +39,13 @@ public class DemoTest{
         User user = new User();
         user.setUserName("张三1");
         user.setAge(231);
-        mapper.save(user);
+        mapper._save(user);
         //List<User> list=mapper.queryAll();
         System.out.println("插入用户信息"+user.getUserName());
     }
     @Test
     public void testQueryAll(){
-        List<User> list=mapper.queryAll();
+        List<User> list=mapper._queryAll();
         String str= JSON.toJSONString(list);
         System.out.println(str);
     }
