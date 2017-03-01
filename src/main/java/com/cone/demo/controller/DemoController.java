@@ -36,6 +36,10 @@ public class DemoController {
         model.addAttribute("name","desar都是");
         return "test";
     }
+    @RequestMapping("/main")
+    String main(Model model) {
+        return "main";
+    }
     @RequestMapping("/rest/{id}")
     @ResponseBody
     List<User> rest(@PathVariable("id") String id){
