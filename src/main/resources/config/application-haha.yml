@@ -18,6 +18,9 @@ security:
     name: admin
     password: admin
     role: USER
+  ignored:
+    /
+    ,/demo/rest/dsds
 mybatis:
   mapperLocations: classpath*:com/cone/**/dao/*.xml
 #  typeAliasesPackage: com.cone.demo.model.bo
