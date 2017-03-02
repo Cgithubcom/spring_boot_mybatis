@@ -32,8 +32,9 @@ public class CustomUserServiceImpl implements UserDetailsService {
 		List<SysRoleVO> list=new ArrayList<SysRoleVO>();
 		SysRoleVO role=new SysRoleVO();
 		role.setId("1");
-		role.setName("ROLE_TQ");
+		role.setName("ROLE_USER");
 		role.setStatus("1");
+		list.add(role);
 		user.setRoles(list);
 		return user;
 	}
