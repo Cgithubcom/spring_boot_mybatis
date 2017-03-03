@@ -48,10 +48,9 @@ public class DemoController {
         //return "id"+id+"<br>"+str;
         return list;
     }
-    @RequestMapping("/role/test")
+    @RequestMapping("/role/test/{id}")
     @ResponseBody
-    String roleTes(){
-    	String id="dsd";
+    String roleTes(@PathVariable("id") String id){
     	return id;
     }
 }
