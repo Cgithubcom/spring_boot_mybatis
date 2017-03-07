@@ -4,11 +4,7 @@ import org.apache.ibatis.session.ExecutorType;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.io.Resource;
 
-/**
- * Configuration properties for Mybatis.
- *
- * @author Eddú Meléndez
- */
+
 @ConfigurationProperties(prefix = MybatisProperties.MYBATIS_PREFIX)
 public class MybatisProperties{
         public static final String MYBATIS_PREFIX = "mybatis";

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cone.auth.dao.SysUserMapper" >
+
+<resultMap type="com.cone.auth.model.bo.SysUser" id="customerSysUser">  
+        <id column="id" property="id"/>  
+        <result column="login_name" property="loginName"/>  
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>  
+        <collection   property="roles"  ofType="com.cone.auth.model.bo.SysRole">  
+            <id column="r_id" property="id"/>  
+            <result column="r_name" property="name"/>
+            <result column="r_code" property="code"/>
+        </collection >  
+    </resultMap>    
+    
+    <select id="_queryUserAndRole" resultMap="customerSysUser">
+    select 
+    	u.id
+    	,u.login_name
+    	,u.name
+    	,u.pwd
+    	,r.id as "r_id"
+    	,r.name as "r_name"
+    	,r.code as "r_code"
+    from t_sys_user u LEFT JOIN t_sys_user_role ur on u.id=ur.user_id
+		LEFT JOIN t_sys_role r on ur.role_id=r.id
+	WHERE u.status='1'
+	 <if test="id!=null and id!=''">
+	 	and u.id=#{id}
+	 </if>
+	  <if test="loginName!=null and loginName!=''">
+	 	and u.login_name=#{loginName}
+	 </if>
+	  <if test="name!=null and name!=''">
+	 	and u.name=#{name}
+	 </if>
+	 ORDER BY u.id,r.id
+    </select>
+</mapper>

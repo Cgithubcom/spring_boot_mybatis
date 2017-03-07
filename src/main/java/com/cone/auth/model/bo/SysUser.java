@@ -5,66 +5,75 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-@Table(name="t_sys_resource")
-public class SysResource {
+/****/
+@Table(name="t_sys_user")
+public class SysUser{
 	@Id
 	@GeneratedValue(generator = "UUID")
 	private String id;
-	private String name;
-	private String code;
-	private String resource_type_id;
-	private String parent_id;
-	private String status;
-	private String sort;
-	@Transient
-	private List<SysRole> roles;
+	private String loginName;
+    private String name;
+    private String pwd;
+    private String status;
+    private int sort;
+    
+    @Transient
+    private List<SysRole> roles;
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCode() {
-		return code;
+
+	public String getPwd() {
+		return pwd;
 	}
-	public void setCode(String code) {
-		this.code = code;
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
-	public String getResource_type_id() {
-		return resource_type_id;
-	}
-	public void setResource_type_id(String resource_type_id) {
-		this.resource_type_id = resource_type_id;
-	}
-	public String getParent_id() {
-		return parent_id;
-	}
-	public void setParent_id(String parent_id) {
-		this.parent_id = parent_id;
-	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getSort() {
+
+	public int getSort() {
 		return sort;
 	}
-	public void setSort(String sort) {
+
+	public void setSort(int sort) {
 		this.sort = sort;
 	}
+
 	public List<SysRole> getRoles() {
 		return roles;
 	}
+
 	public void setRoles(List<SysRole> roles) {
 		this.roles = roles;
 	}
+
 }

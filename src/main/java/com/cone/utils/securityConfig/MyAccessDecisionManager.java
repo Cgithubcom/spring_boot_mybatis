@@ -2,7 +2,6 @@ package com.cone.utils.securityConfig;
 
 import java.util.Collection;
 import java.util.Iterator;
-
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
