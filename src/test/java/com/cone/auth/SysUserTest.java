@@ -10,7 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.alibaba.fastjson.JSON;
+import com.cone.auth.dao.SysResourceMapper;
 import com.cone.auth.dao.SysUserMapper;
+import com.cone.auth.model.bo.SysResource;
 import com.cone.auth.model.bo.SysUser;
 
 @RunWith(SpringRunner.class)
@@ -26,6 +28,4 @@ public class SysUserTest {
 		List<SysUser> list=userMapper._queryUserAndRole(user);
 		System.out.println(JSON.toJSONString(list));
 	}
-			
-
 }

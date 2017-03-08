@@ -1,8 +1,11 @@
 package com.cone.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.cone.auth.model.vo.SysUserDetails;
 import com.cone.demo.dao.UserMapper;
 import com.cone.demo.model.bo.User;
+import com.cone.utils.UserUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -51,6 +54,8 @@ public class DemoController {
     @RequestMapping("/role/test/{id}")
     @ResponseBody
     String roleTes(@PathVariable("id") String id){
+    	SysUserDetails userDetails = UserUtils.getCurrentUser();
+    	System.out.println(userDetails);
     	return id;
     }
 }
