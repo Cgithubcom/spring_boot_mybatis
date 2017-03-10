@@ -26,7 +26,7 @@ public class SysResourceTest {
 	
 	@Test
 	public void _queryMenum(){
-		List<SysResource> list=resourceMapper._queryMenum("0","ROLE_ADMIN");
+		List<SysResource> list=resourceMapper._queryMenum("0","'ROLE_ADMIN'");
 		System.out.println(JSON.toJSONString(list));
 	}
 	@Test

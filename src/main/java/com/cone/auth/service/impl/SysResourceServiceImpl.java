@@ -13,11 +13,12 @@ import com.cone.auth.model.bo.SysRole;
 import com.cone.auth.model.bo.SysUser;
 import com.cone.auth.model.vo.SysMenum;
 import com.cone.auth.model.vo.SysUserDetails;
+import com.cone.auth.service.ISysResourceService;
 import com.cone.utils.UserUtils;
 import com.github.pagehelper.StringUtil;
 
 @Service
-public class SysResourceServiceImpl {
+public class SysResourceServiceImpl implements ISysResourceService{
 	@Autowired
 	private SysResourceMapper mapper;
 	
