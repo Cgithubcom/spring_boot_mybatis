@@ -26,7 +26,7 @@ mybatis:
 #  typeAliasesPackage: com.cone.demo.model.bo
 server:
   port: 8082
-  contextPath: /hell
+#  contextPath: /hell
 logging:
   file: D:/mylog/log.log
   level:

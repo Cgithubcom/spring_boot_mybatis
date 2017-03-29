@@ -1,25 +1,102 @@
 <!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8"/>
+    <title>二手车交易网</title>
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0"/>
+    <link href="/res/Flat-UI/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/res/img/favicon.ico"/>
+    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    <script src="/res/Flat-UI/js/vendor/html5shiv.js"></script>
+    <script src="/res/Flat-UI/js/vendor/respond.min.js"></script>
+    <script src="/res/Flat-UI/js/vendor/jquery.min.js"></script>
+    <script src="/res/Flat-UI/js/flat-ui.min.js"></script>
+    <script src="/res/Flat-UI/js/application.js"></script>
+    <style>
+    html,body{
+      height: 100%;
+      padding:0px;
+    }
+    .container{
+    }
+  </style>
+</head>
+<body style="background-image: url(/res/img/noise_lines.png)">
+<div id="mybody">
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="#">二手车 交易网</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
+                        <span class="dropdown-arrow"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="javascript:void(0)" onclick="openC('zhuce.html')">注册</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">二手车交易 <b class="caret"></b></a>
+                        <span class="dropdown-arrow"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)" onclick="openC('index.html')">发布二手车</a></li>
+                            <li><a href="javascript:void(0)" onclick="openC('My_logion3.html')">浏览二手车</a></li>
+                            <li><a href="#">我要投诉</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">我要推荐</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#fakelink">关于我们</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" action="#" role="search">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" id="navbarInput-01" type="search" placeholder="Search"/>
+                            <span class="input-group-btn">
+                      <button type="submit" class="btn"><span class="fui-search"></span></button>
+                    </span>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        <div id="iframeContent">
+            <h1 th:inline="text">wc [[${#httpServletRequest.remoteUser}]]!</h1>
 
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+            <form th:action="@{/logout}" method="post">
 
-    <head>
+                <input type="submit" value="Sign Out"/>
 
-        <title>home page</title>
+            </form>
+        </div>
+    </div> <!-- /container -->
 
-    </head>
-
-    <body>
-
-        <h1 th:inline="text">wc [[${#httpServletRequest.remoteUser}]]!</h1>
-
-        <form th:action="@{/logout}" method="post">
-
-            <input type="submit" value="Sign Out"/>
-
-        </form>
-
-    </body>
-
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</div>
+<script>
+ /* $(function(){
+    $.get("My_logion.html",function(data){
+      $("#iframeContent").html(data);//初始化加载界面
+    });
+  });*/
+  function openC(url){
+    $("#iframeContent").load(url);
+    /*$.get(url,function(data){
+      $("#iframeContent").html(data);
+    });*/
+  }
+</script>
+</body>
 </html>
+

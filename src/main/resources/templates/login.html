@@ -1,51 +1,77 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
 
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>二手车交易网登录</title>
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0"/>
+    <link href="/res//Flat-UI/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/res/img/favicon.ico"/>
+    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
 
-    <head>
+    <script src="/res/Flat-UI/js/vendor/html5shiv.js"></script>
+    <script src="/res/Flat-UI/js/vendor/respond.min.js"></script>
+    <script src="/res/Flat-UI/js/vendor/jquery.min.js"></script>
+    <script src="/res/Flat-UI/js/flat-ui.min.js"></script>
+    <script src="/res/Flat-UI/js/application.js"></script>
+    <style>
+    html,body{ height:100%; margin:0; padding:0}
 
-        <title>Spring Security Example </title>
+    .mask{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:1000; }
 
-    </head>
-
-    <body>
-
-        <div th:if="${param.error}">
-
-            Invalid username and password.
-
-        </div>
-
-        <div th:if="${param.logout}">
-
-            You have been logged out.
-
-        </div>
-
-        <div th:if="${#httpServletRequest.remoteUser != null}">
-
-    <p th:text="${#httpServletRequest.remoteUser}">
-
-      sample_user
-
-    </p>
-
+    .opacity{ opacity:0.7; filter: alpha(opacity=30); background-color:#000; }
+  </style>
+</head>
+<body>
+<div class="mask opacity" style="background: url('/res/img/loginBack.jpg');z-index: -1;"></div>
+<div class="mask opacity" style="background-color: #000000;z-index: 0;"></div>
+<div class="container" style="max-width: 400px;min-width: 200px;
+ position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+">
+    <form class="form-horizontal" id="defaultForm" th:action="@{/login}" method="post">
+        <fieldset>
+            <h3 style="text-align: center;font-family: '微软雅黑';color:white;"><b>二手车交易系统登录</b></h3>
+            <div name="erroMsg" style="color:red;">
+                <div th:if="${param.error}">
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+                <div th:if="${#httpServletRequest.remoteUser != null}">
+                    <p th:text="${#httpServletRequest.remoteUser}">
+                        sample_user
+                    </p>
+                </div>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <input type="text" class="form-control login-field" value="" placeholder="用户名" id="username" name="username"/>
+                    <label class="login-field-icon fui-user" for="username"></label>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control login-field" value="" placeholder="密码" id="password" name="password" />
+                    <label class="login-field-icon fui-lock" for="password"></label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="登 录" class="btn btn-primary btn-lg btn-block"/>
+                    <div class="row" style="margin-top:15px">
+                        <a class="login-link col-xs-8" style="margin-top: 0px" href="#">忘记密码22？</a>
+                        <label class="checkbox col-xs-4" for="checkbox1">
+                            <input type="checkbox"  name="remember-me" value="true" th:checked="checked" id="checkbox1" data-toggle="checkbox"/>
+                            记住我
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
 </div>
-
-        <form th:action="@{/login}" method="post">
-
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-
-            <div><input type="submit" value="Sign In"/></div>
-
-            <input type="checkbox" name="remember-me" value="true" th:checked="checked"/><p>Remember me</p>
-
-        </form>
-
-    </body>
-
+</body>
 </html>
