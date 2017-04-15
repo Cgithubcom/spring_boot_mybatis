@@ -53,7 +53,7 @@ public class SysResourceServiceImpl implements ISysResourceService{
 		return null;
 	}
 	@SuppressWarnings("unused")
-	private List<SysMenum> getCls(List<SysResource> list,String pid,int leve) throws IllegalAccessException, InvocationTargetException{
+	private List<SysMenum> getCls(List<SysResource> list,Integer pid,int leve) throws IllegalAccessException, InvocationTargetException{
 		List<SysMenum> rs=new ArrayList<SysMenum>();
 		leve++;
 		if(list!=null){

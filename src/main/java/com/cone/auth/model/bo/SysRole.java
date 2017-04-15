@@ -8,40 +8,49 @@ import javax.persistence.Table;
 public class SysRole {
 	@Id
 	@GeneratedValue(generator = "UUID")
-	private String id;
+	private Integer id;
 	private String name;
 	private String code;
-	private int sort;
+	private Integer sort;
 	private String status;
-	
-	
-	public String getId() {
+
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getSort() {
+
+	public Integer getSort() {
 		return sort;
 	}
-	public void setSort(int sort) {
+
+	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}

@@ -39,6 +39,10 @@ public class DemoController {
         model.addAttribute("name","desar都是");
         return "test";
     }
+    @RequestMapping("/model/{id}")
+    String gethtml(@PathVariable("id") String id) {
+        return id;
+    }
     @RequestMapping("/main")
     String main(Model model) {
         return "main";

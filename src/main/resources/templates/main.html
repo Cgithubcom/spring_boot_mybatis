@@ -1,102 +1,96 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>二手车交易网</title>
-    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0"/>
-    <link href="/res/Flat-UI/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
-    <link rel="shortcut icon" href="/res/img/favicon.ico"/>
-    <link href="/res/Flat-UI/css/flat-ui.css" rel="stylesheet"/>
-
-    <script src="/res/Flat-UI/js/vendor/html5shiv.js"></script>
-    <script src="/res/Flat-UI/js/vendor/respond.min.js"></script>
-    <script src="/res/Flat-UI/js/vendor/jquery.min.js"></script>
-    <script src="/res/Flat-UI/js/flat-ui.min.js"></script>
-    <script src="/res/Flat-UI/js/application.js"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>易车网用户登录</title>
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"/>-->
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>-->
+    <link rel="stylesheet" href="/res/other/materialize/css/materialize.css"/>
+    <link rel="stylesheet" href="/res/css/style.css"/>
+    <link rel="stylesheet" href="/res/css/cone_fonticons/iconfont.css"/>
     <style>
-    html,body{
-      height: 100%;
-      padding:0px;
-    }
-    .container{
-    }
-  </style>
+        .my-dropdown-content{
+            background-color: #ee6e73
+        }
+        .my-dropdown-content li>a, .my-dropdown-content li>span{
+            color: white
+        }
+    </style>
 </head>
-<body style="background-image: url(/res/img/noise_lines.png)">
-<div id="mybody">
-    <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
-                <a class="navbar-brand" href="#">二手车 交易网</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-01">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
-                        <span class="dropdown-arrow"></span>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">修改密码</a></li>
-                            <li><a href="javascript:void(0)" onclick="openC('zhuce.html')">注册</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">二手车交易 <b class="caret"></b></a>
-                        <span class="dropdown-arrow"></span>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)" onclick="openC('index.html')">发布二手车</a></li>
-                            <li><a href="javascript:void(0)" onclick="openC('My_logion3.html')">浏览二手车</a></li>
-                            <li><a href="#">我要投诉</a></li>
+<body>
+<header class="no-padding">
+    <div class="navbar-fixed">
+        <nav class="navfeature green darken-3">
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo">易车网</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i style="font-size:30px" class="iconfont cone-caidan"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="javascript:void(0);" onclick="loadCom('model/div1')" >首页</a></li>
+                    <li><a href="javascript:void(0);" onclick="loadCom('/demo/model/div2')">我要买车</a></li>
+                    <li><a href="collapsible.html">我要卖车</a></li>
+                    <li><a href="mobile.html">服务保障</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">管理员<i class="iconfont cone-xiangxia2 right"></i></a>
+                        <ul id="dropdown1" class="dropdown-content my-dropdown-content">
+                            <li><a href="#!" >添加用户</a></li>
+                            <li><a href="#!" >权限管理</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">我要推荐</a></li>
+                            <li><a href="#!">内容管理</a></li>
                         </ul>
                     </li>
-                    <li><a href="#fakelink">关于我们</a></li>
                 </ul>
-                <form class="navbar-form navbar-right" action="#" role="search">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input class="form-control" id="navbarInput-01" type="search" placeholder="Search"/>
-                            <span class="input-group-btn">
-                      <button type="submit" class="btn"><span class="fui-search"></span></button>
-                    </span>
-                        </div>
-                    </div>
-                </form>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
-        <div id="iframeContent">
-            <h1 th:inline="text">wc [[${#httpServletRequest.remoteUser}]]!</h1>
+    </div>
+    <div class="side-nav-start">
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="javascript:void(0);" onclick="loadCom('model/div1')">首页</a></li>
+            <li><a href="javascript:void(0);" onclick="loadCom('/demo/model/div2')">我要买车</a></li>
+            <li><a href="collapsible.html">我要卖车</a></li>
+            <li><a href="mobile.html">服务保障</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">管理员<i class="iconfont cone-xiangxia2 right"></i></a>
+                <ul id="dropdown2" class="dropdown-content">
+                    <li><a href="#!">添加用户</a></li>
+                    <li><a href="#!">权限管理</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#!">内容管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-- *导航结束**************-->
 
-            <form th:action="@{/logout}" method="post">
 
-                <input type="submit" value="Sign Out"/>
+<div class="container" id="container">
 
-            </form>
-        </div>
-    </div> <!-- /container -->
-
-    <footer>
-        <div class="container">
-        </div>
-    </footer>
 </div>
+
+<footer class="page-footer darken-3 my-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+        </div>
+    </div>
+</footer>
+<script src="/res/js/jquery.min.js"></script>
+<script src="/res/other/materialize/js/materialize.min.js"></script>
+<script src="/res/js/myHttpComLoader.js"></script>
+<script src="/res/js/jquery.validate.min.js"></script>
+<script src="/res/js/jquery.validate.messages_zh.min.js"></script>
 <script>
- /* $(function(){
-    $.get("My_logion.html",function(data){
-      $("#iframeContent").html(data);//初始化加载界面
+    var app=null;
+    $(function(){
+        $(".button-collapse").sideNav();
+        $(".dropdown-button").dropdown();
+
     });
-  });*/
-  function openC(url){
-    $("#iframeContent").load(url);
-    /*$.get(url,function(data){
-      $("#iframeContent").html(data);
-    });*/
-  }
+    function loadCom(url){
+        app={};
+        var html=myHttpComLoader.httpRequest(url);
+        $("#container").html(html);
+        init();
+    }
 </script>
 </body>
 </html>
-

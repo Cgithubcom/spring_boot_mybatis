@@ -3,22 +3,22 @@ package com.cone.auth.model.vo;
 import java.util.List;
 
 public class SysMenum {
-	private String id;
+	private Integer id;
 	private String name;
 	private String code;
 	private String resourceType;
-	private String parentId;
+	private Integer parentId;
 	private String status;
-	private String sort;
+	private Integer sort;
 	private int leve;
 	
 	private List<SysMenum> cls;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -46,11 +46,11 @@ public class SysMenum {
 		this.resourceType = resourceType;
 	}
 
-	public String getParentId() {
+	public Integer getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(String parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 
@@ -62,20 +62,12 @@ public class SysMenum {
 		this.status = status;
 	}
 
-	public String getSort() {
+	public Integer getSort() {
 		return sort;
 	}
 
-	public void setSort(String sort) {
+	public void setSort(Integer sort) {
 		this.sort = sort;
-	}
-
-	public List<SysMenum> getCls() {
-		return cls;
-	}
-
-	public void setCls(List<SysMenum> cls) {
-		this.cls = cls;
 	}
 
 	public int getLeve() {
@@ -86,4 +78,11 @@ public class SysMenum {
 		this.leve = leve;
 	}
 
+	public List<SysMenum> getCls() {
+		return cls;
+	}
+
+	public void setCls(List<SysMenum> cls) {
+		this.cls = cls;
+	}
 }

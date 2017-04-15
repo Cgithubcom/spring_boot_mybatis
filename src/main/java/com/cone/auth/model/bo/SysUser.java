@@ -9,22 +9,21 @@ import javax.persistence.Transient;
 @Table(name="t_sys_user")
 public class SysUser{
 	@Id
-	@GeneratedValue(generator = "UUID")
-	private String id;
+	private Integer id;
 	private String loginName;
     private String name;
     private String pwd;
     private String status;
-    private int sort;
+    private Integer sort;
     
     @Transient
     private List<SysRole> roles;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -60,11 +59,11 @@ public class SysUser{
 		this.status = status;
 	}
 
-	public int getSort() {
+	public Integer getSort() {
 		return sort;
 	}
 
-	public void setSort(int sort) {
+	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
 
@@ -75,5 +74,4 @@ public class SysUser{
 	public void setRoles(List<SysRole> roles) {
 		this.roles = roles;
 	}
-
 }

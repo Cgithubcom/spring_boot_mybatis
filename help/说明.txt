@@ -2,3 +2,4 @@
 2.ide下需要main/resources设置为资源包
 3.打包命令（package spring-boot:repackage）；
 4.打成jar包后可在window dos下通过（java -jar **.jar）命令运行，可通过（chcp 65001）命令设置dos的编码为utf-8,否则命令行会出现中文乱码的问题
+5.项目使用阿里图标，通过github账号登录阿里图标获取cone项目下的图标即可

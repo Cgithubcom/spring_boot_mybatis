@@ -10,7 +10,7 @@ import com.cone.auth.model.bo.SysRole;
 
 public class SysUserDetails implements UserDetails{
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private Integer id;
 	private String loginName;
     private String name;
     private String pwd;
@@ -63,11 +63,11 @@ public class SysUserDetails implements UserDetails{
 	
 	/*******************get set******/
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
