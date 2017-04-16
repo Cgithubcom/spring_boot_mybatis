@@ -1,0 +1,69 @@
+<div id="moude1">
+    <div class="center"><h5>角色管理</h5></div>
+    <div class="z-depth-1 white">
+        <table class="bordered striped highlight responsive-table">
+            <thead>
+            <tr class="orange lighten-1">
+                <th><input type="checkbox" id="ck"/><label for="ck"></label></th>
+                <th data-field="id">ID</th>
+                <th data-field="name">角色名称</th>
+                <th data-field="code">代码</th>
+                <th data-field="sort">排序</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr v-for="(item, index) in roles">
+                <td><input type="checkbox" v-bind:id="'ck'+index"/><label v-bind:for="'ck'+index"></label></td>
+                <td>{{index}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.code}}</td>
+                <td>{{item.sort}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <component v-bind:is="mypage">
+            <!-- 分页组件 -->
+        </component>
+    </div>
+</div>
+<script>
+
+    function init() {
+        app={};
+        var queryUrl="";
+        app.vapp = new Vue({
+          el: '#moude1',
+          data: {
+            mypage:null,
+            roles:null
+          }
+        });
+        loadData(1,true);
+        function loadData(pageNum,createPage){
+            $.ajax({
+                url: "/auth/sysRole/list",
+                data: {
+                    pageNum:pageNum,
+                    pageSize:1
+                    //name:"回答很费劲"
+                },
+                type: "POST",
+                headers : headers,
+                async:false,
+                success:function(data){
+                    var pageInfo = JSON.parse( data );
+                    app.vapp.roles=pageInfo.list;
+                    if(createPage){
+                        app.vapp.mypage=cone_createPage(8,pageInfo.total,loadData)
+                    }
+                },
+                error: function () {
+                    //deal width error
+                }
+            });
+        }
+
+    }
+
+</script>

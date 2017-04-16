@@ -12,7 +12,10 @@ INSERT INTO `t_sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('2', '2', '2'
 -- 添加测试资源
 INSERT INTO `t_sys_resource` (`id`, `code`, `resource_type`, `status`, `sort`) VALUES ('1', '/demo/role/test/user', '0', '1', '1');
 INSERT INTO `t_sys_resource` (`id`, `code`, `resource_type`, `status`, `sort`) VALUES ('2', '/demo/role/test/admin', '0', '1', '2');
+INSERT INTO `t_sys_resource` (`id`, `code`, `resource_type`, `status`, `sort`) VALUES ('0', '/**', '0', '1', '3');
 
 -- 添加资源角色
 INSERT INTO `t_sys_resource_role` (`id`, `resource_id`, `role_id`) VALUES ('1', '1', '2');
 INSERT INTO `t_sys_resource_role` (`id`, `resource_id`, `role_id`) VALUES ('2', '2', '1');
+INSERT INTO `t_sys_resource_role` (`id`, `resource_id`, `role_id`) VALUES ('3', '3', '1');
+

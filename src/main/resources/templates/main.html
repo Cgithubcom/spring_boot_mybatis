@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>易车网用户登录</title>
     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"/>-->
     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>-->
@@ -19,7 +22,7 @@
     </style>
 </head>
 <body>
-<header class="no-padding">
+<header class="no-padding" id="nav">
     <div class="navbar-fixed">
         <nav class="navfeature green darken-3">
             <div class="nav-wrapper container">
@@ -32,7 +35,7 @@
                     <li><a href="mobile.html">服务保障</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">管理员<i class="iconfont cone-xiangxia2 right"></i></a>
                         <ul id="dropdown1" class="dropdown-content my-dropdown-content">
-                            <li><a href="#!" >添加用户</a></li>
+                            <li><a href="javascript:void(0);" url="/auth/sysRole/listPage" >角色管理</a></li>
                             <li><a href="#!" >权限管理</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">内容管理</a></li>
@@ -78,11 +81,23 @@
 <script src="/res/js/myHttpComLoader.js"></script>
 <script src="/res/js/jquery.validate.min.js"></script>
 <script src="/res/js/jquery.validate.messages_zh.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="/res/js/cone_pagination.vue.js"></script>
 <script>
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers={};
+    headers[header]=token;
     var app=null;
     $(function(){
         $(".button-collapse").sideNav();
         $(".dropdown-button").dropdown();
+        $("#nav a").click(function(a){
+            var url=$(a.target).attr("url");
+            if(url!=null&&url!=""){
+                loadCom(url);
+            }
+        });
 
     });
     function loadCom(url){
