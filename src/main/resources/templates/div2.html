@@ -1,0 +1,145 @@
+
+<style>
+    .primary-color{
+        background-color: #ee6e73
+    }
+    .primary-color-txt{
+        color: white
+    }
+    .my-dropdown-content{
+        background-color: #ee6e73
+    }
+    .my-dropdown-content li>a, .my-dropdown-content li>span{
+        color: white
+    }
+    .my-footer{
+        /*       position: absolute;
+               width: 100%;
+               bottom: 0;*/
+    }
+    label{
+        font-size: 14px !important;
+        color: #000 !important;
+    }
+</style>
+<div id="moude1">
+    <div class="center"><h5>用户注册</h5></div>
+    <div class="row">
+        <form class="col s12" id="myform">
+           <!-- <fieldset>-->
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="占位提示" id="username" name="username"type="text"  required="true" minlength="3">
+                    <label for="username">姓名</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="longinName" id="longinName" type="text"  required="true" minlength="3"/>
+                    <label for="longinName">登录名</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="password" name="password" type="password" required="true"/>
+                    <label for="password">密码</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="qpassword" name="qpassword" type="password" required="true"/>
+                    <label for="qpassword">确认密码</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="占位提示" id="phone" name="phone" type="text"  required="true" minlength="3"/>
+                    <label for="phone">手机号码</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="qqnum" name="qqnum" type="text" />
+                    <label for="qqnum">QQ号码</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email"/>
+                    <label for="email">邮件</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <textarea id="mark" name="mark" class="materialize-textarea"></textarea>
+                    <label for="mark">信息</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="borthDate" name="borthDate" type="text"  class="datepicker"  required="true"/>
+                    <label for="borthDate">日期</label>
+                </div>
+                <div class="input-field col s6">
+                    <select id="sex" name="sex" required>
+                       <!-- <option value="" id="sex" name="sex" required>请选择性别</option>-->
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                        <option value="3">不详</option>
+                    </select>
+                    <label for="sex">性别</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    个人评价:
+                    <div class="input-field inline">
+                        <input id="pj" name="pj" type="text"/>
+                        <label for="pj">邮件</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row center">
+                <button class="btn waves-effect waves-light center" type="submit" name="action">登录
+                    <i class="fa fa-sign-in right"></i>
+                </button>
+            </div>
+           <!-- </fieldset>-->
+        </form>
+    </div>
+</div>
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<script>
+    function init() {
+        $("#moude1 .button-collapse").sideNav();
+        $("#moude1 .dropdown-button").dropdown();
+        $('#moude1 select').material_select();
+        $('#moude1 .datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+        var validator=$("#myform").validate({
+            errorElement: "div",
+            errorClass:"invalid",
+            success:"valid"
+        });
+        $("#myform").validate({
+            submitHandler:function(form){
+                alert("提交事件!");
+                form.submit();
+            }
+        });
+        var app6 = new Vue({
+          el: '#app-6',
+          data: {
+            message: 'Hello Vue!'
+          }
+        })
+
+        app.add=function(){
+            alert("add_div2");
+        }
+        app.dd=function(){
+            alert("dd_div2");
+        }
+    }
+
+
+</script>

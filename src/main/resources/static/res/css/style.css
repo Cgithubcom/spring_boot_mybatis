@@ -1,0 +1,15 @@
+.primary-color{
+    background-color: #ee6e73
+}
+.primary-color-txt{
+    color: white
+}
+body{
+    height: 100%;
+    background-image: url(/res/img/noise_lines.png);
+}
+/**验证提醒样式*/
+div.invalid{
+    color:red;
+    margin-top: -18px;
+}
