@@ -27,7 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-		http.addFilterBefore(myFilterSecurityInterceptor, FilterSecurityInterceptor.class)
+		http.csrf().ignoringAntMatchers("/login")
+		    .and().addFilterBefore(myFilterSecurityInterceptor, FilterSecurityInterceptor.class)
 			.authorizeRequests()
 			.antMatchers("/", "/demo/index","/res/**").permitAll()
 			.antMatchers("/demo/role/test/dd").hasRole("USER222")
